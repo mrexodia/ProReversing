@@ -1,24 +1,38 @@
+/*
+	File:		ProReversing.c
+	Date:		27.11.15
+	Purpose:	This project gathers anti-anti-reversing techniques into an open library.
+				The resulting DLL can be easily incorporated into all reverse engineering tools.
+*/
+
 #include "ProReversing.h"
 
 /*
 	Function Name:	EnableProReversing
-	Parameters:		pszOption [-in-] - Represents list of ProReversing functions to be enabled.
-					The ProReversing functionality list is spilited by comma
+	Parameters:		RunDll interface.
+					hwnd		-		IN		- Window handle
+					hinst		-		IN		- DLL's instance handle
+					lpszCmdLine -		IN		- ASCIIZ command line your DLL should parse
+					nCmdShow	-		IN		- Describes how your DLL's windows should be displayed
 	Return Value:	STATUS_CODE
 	Details:		Enabling ProReversing functionality
 	Date:			28.11.15
 	Author:			Dvir Atias
 */
 STATUS_CODE
+WINAPI
 EnableProReversing(
-	__in PTSTR pszOption
+				__in HWND hwnd,
+				__in HINSTANCE hinst,
+				__in PTSTR lpszCmdLine,
+				__in int nCmdShow
 )
 {
 	STATUS_CODE eStatus = STATUS_INVALID_VALUE;
 	PTSTR * ppszArgument = NULL;
 	PDWORD pdwArgc = 0;
 
-	ppszArgument = CommandLineToArgvW(pszOption, pdwArgc);
+	ppszArgument = CommandLineToArgvW(lpszCmdLine, pdwArgc);
 	if (NULL == ppszArgument)
 	{
 		DEBUG_PRINT("CommandLineToArgvW Failed with: %d", GetLastError());
@@ -32,15 +46,23 @@ Cleanup:
 
 /*
 	Function Name:	DisableProReversing
-	Parameters:		pszOption [-in-] - Represents list of ProReversing functions to be disabled
+	Parameters:		RunDll interface.
+					hwnd		-		IN		- Window handle
+					hinst		-		IN		- DLL's instance handle
+					lpszCmdLine -		IN		- ASCIIZ command line your DLL should parse
+					nCmdShow	-		IN		- Describes how your DLL's windows should be displayed
 	Return Value:	STATUS_CODE
-	Details:		Disabling ProReversing functionality
+	Details:		Enabling ProReversing functionality
 	Date:			28.11.15
-	Author:			Dvir Atias	
+	Author:			Dvir Atias
 */
 STATUS_CODE
+WINAPI
 DisableProReversing(
-	__in PTSTR pszOption
+	__in HWND hwnd,
+	__in HINSTANCE hinst,
+	__in PTSTR lpszCmdLine,
+	__in int nCmdShow
 )
 {
 
@@ -48,7 +70,7 @@ DisableProReversing(
 	PTSTR * ppszArgument = NULL;
 	PDWORD pdwArgc = 0;
 
-	ppszArgument = CommandLineToArgvW(pszOption, pdwArgc);
+	ppszArgument = CommandLineToArgvW(lpszCmdLine, pdwArgc);
 	if (NULL == ppszArgument)
 	{
 		DEBUG_PRINT("CommandLineToArgvW Failed with: %d", GetLastError());

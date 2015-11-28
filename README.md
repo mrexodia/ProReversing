@@ -13,7 +13,6 @@ For more information, see [my blog](http://malwaremuncher.blogspot.com/2012/11/t
 
 
 ### TODO
-	- Support the following Anti-Debugging techniques:
 - [ ] BeingDebugged 
 
 

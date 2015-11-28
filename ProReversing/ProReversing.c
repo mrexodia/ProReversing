@@ -2,7 +2,8 @@
 
 /*
 	Function Name:	EnableProReversing
-	Parameters:		pszOption [-in-] - Represents list of ProReversing functions to be enabled
+	Parameters:		pszOption [-in-] - Represents list of ProReversing functions to be enabled.
+					The ProReversing functionality list is spilited by comma
 	Return Value:	STATUS_CODE
 	Details:		Enabling ProReversing functionality
 	Date:			28.11.15
@@ -13,8 +14,20 @@ EnableProReversing(
 	__in PTSTR pszOption
 )
 {
-	STATUS_CODE tStatus = STATUS_INVALID_VALUE;
-	return tStatus;
+	STATUS_CODE eStatus = STATUS_INVALID_VALUE;
+	PTSTR * ppszArgument = NULL;
+	PDWORD pdwArgc = 0;
+
+	ppszArgument = CommandLineToArgvW(pszOption, pdwArgc);
+	if (NULL == ppszArgument)
+	{
+		DEBUG_PRINT("CommandLineToArgvW Failed with: %d", GetLastError());
+		eStatus = STATUS_ENABLE_PROREVERSING_COMMANDLINE_TO_ARGV_FAILED;
+		goto Cleanup;
+	}
+
+Cleanup:
+	return eStatus;
 }
 
 /*
@@ -30,8 +43,21 @@ DisableProReversing(
 	__in PTSTR pszOption
 )
 {
-	STATUS_CODE tStatus = STATUS_INVALID_VALUE;
-	return tStatus;
+
+	STATUS_CODE eStatus = STATUS_INVALID_VALUE;
+	PTSTR * ppszArgument = NULL;
+	PDWORD pdwArgc = 0;
+
+	ppszArgument = CommandLineToArgvW(pszOption, pdwArgc);
+	if (NULL == ppszArgument)
+	{
+		DEBUG_PRINT("CommandLineToArgvW Failed with: %d", GetLastError());
+		eStatus = STATUS_DISABLE_PROREVERSING_COMMANDLINE_TO_ARGV_FAILED;
+		goto Cleanup;
+	}
+
+Cleanup:
+	return eStatus;
 }
 
 BOOL

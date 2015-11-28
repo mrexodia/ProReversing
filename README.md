@@ -14,8 +14,4 @@ For more information, see [my blog](http://malwaremuncher.blogspot.com/2012/11/t
 Build Prerequisites
 --------------
 
-* Install the [Boost](http://www.boost.org/) library. Make sure to install it with runtime-link=static!
-* Create an environment variable called BOOSTDIR and make it point to the installed Boost library.
-* In order to run the tests successfully, install the [Google C++ Testing Framework](http://code.google.com/p/googletest/).
-* Create an environment variable called GTESTDIR pointing to the googletest directory.
 * If you want to execute the injection test, you will have to download the Dll-Injector project. If not, comment it out.

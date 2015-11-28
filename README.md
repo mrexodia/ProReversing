@@ -11,6 +11,12 @@ This project gathers anti-anti-reversing techniques into an open library. The re
 
 For more information, see [my blog](http://malwaremuncher.blogspot.com/2012/11/towards-anti-anti-reversing-framework.html).
 
+
+### TODO
+	- Support the following Anti-Debugging techniques:
+- [ ] BeingDebugged 
+
+
 Build Prerequisites
 --------------
 

@@ -22,15 +22,17 @@
 STATUS_CODE
 WINAPI
 EnableProReversing(
-				__in HWND hwnd,
-				__in HINSTANCE hinst,
-				__in PTSTR lpszCmdLine,
-				__in int nCmdShow
+	__in HWND hwnd,
+	__in HINSTANCE hinst,
+	__in PTSTR lpszCmdLine,
+	__in int nCmdShow
 )
 {
 	STATUS_CODE eStatus = STATUS_INVALID_VALUE;
 	PTSTR * ppszArgument = NULL;
 	PDWORD pdwArgc = 0;
+
+	MessageBox(0, 0, 0, 0);
 
 	ppszArgument = CommandLineToArgvW(lpszCmdLine, pdwArgc);
 	if (NULL == ppszArgument)

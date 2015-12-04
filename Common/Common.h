@@ -9,6 +9,7 @@
 /** Headers **************************************************************/
 
 #include <Windows.h>
+#include <shellapi.h>
 #include <stdarg.h>
 #include <tchar.h>
 

@@ -5,6 +5,7 @@
 				The resulting DLL can be easily incorporated into all reverse engineering tools.
 */
 
+#include <Common.h>
 #include "ProReversing.h"
 
 /*
@@ -31,8 +32,6 @@ EnableProReversing(
 	STATUS_CODE eStatus = STATUS_INVALID_VALUE;
 	PTSTR * ppszArgument = NULL;
 	PDWORD pdwArgc = 0;
-
-	MessageBox(0, 0, 0, 0);
 
 	ppszArgument = CommandLineToArgvW(lpszCmdLine, pdwArgc);
 	if (NULL == ppszArgument)

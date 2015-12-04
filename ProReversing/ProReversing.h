@@ -12,7 +12,7 @@
 /** Functions ****************************************************************/
 
 /*
-	Function Name:	EnableProReversing
+	Function Name:	SafeEnableProReversing
 	Parameters:		RunDll interface.
 					hwnd		-		IN		- Window handle
 					hinst		-		IN		- DLL's instance handle
@@ -25,7 +25,7 @@
 */
 STATUS_CODE
 WINAPI
-EnableProReversing(
+SafeEnableProReversing(
 	__in HWND hwnd,
 	__in HINSTANCE hinst,
 	__in PTSTR lpszCmdLine,
@@ -33,7 +33,7 @@ EnableProReversing(
 );
 
 /*
-	Function Name:	DisableProReversing
+	Function Name:	SafeDisableProReversing
 	Parameters:		RunDll interface.
 					hwnd		-		IN		- Window handle
 					hinst		-		IN		- DLL's instance handle
@@ -46,7 +46,7 @@ EnableProReversing(
 */
 STATUS_CODE
 WINAPI
-DisableProReversing(
+SafeDisableProReversing(
 	__in HWND hwnd,
 	__in HINSTANCE hinst,
 	__in PTSTR lpszCmdLine,

@@ -1,0 +1,4 @@
+LIBRARY
+EXPORTS
+	EnableProReversing	@1
+	DisableProReversing @2
